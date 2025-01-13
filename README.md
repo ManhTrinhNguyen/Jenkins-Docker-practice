@@ -12,8 +12,7 @@ This project demonstrates how to set up and configure Jenkins on an Ubuntu serve
 1. **Creating an Ubuntu server** on DigitalOcean.
 2. **Setting up Jenkins** by running it as a Docker container.
    - **Install Docker** : apt install docker.io
-   - **Run Jenkins Container with Jenkins image** : docker run -d -p 8080:8080 -p 50000:50000 -v jenkins-home:/var/jenkins-home -v           
-     /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
+   - **Run Jenkins Container with Jenkins image** : docker run -d -p 8080:8080 -p 50000:50000 -v jenkins-home:/var/jenkins-home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
       - **-d** : Detach mode
       - **-p** : Port
       - **-v jenkins-home:/var/jenkins-home** : -v will create a docker volume to persist data
