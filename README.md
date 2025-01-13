@@ -11,9 +11,10 @@ This project demonstrates how to set up and configure Jenkins on an Ubuntu serve
 
 1. **Creating an Ubuntu server** on DigitalOcean.
 2. **Setting up Jenkins** by running it as a Docker container.
-3. **Initializing Jenkins** for use in build automation and CI/CD workflows.
+   a.  
+4. **Initializing Jenkins** for use in build automation and CI/CD workflows.
 
-# 
+#
 
 
 
