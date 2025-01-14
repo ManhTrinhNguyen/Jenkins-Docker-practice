@@ -1,4 +1,4 @@
-# Demo Project: Install Jenkins on DigitalOcean
+# Install Jenkins on DigitalOcean
 
 ## 🚀 Technologies Used
 - **Jenkins**
@@ -19,3 +19,12 @@ This project demonstrates how to set up and configure Jenkins on an Ubuntu serve
       - **-v /var/run/docker.sock:/var/run/docker.sock** : This command will mounted docker CLI to a Jenkins Container that make Docker CLI available in Jenkins Container
       - **jenkins/jenkins:lts** : Jenkin Image
 3. **Initializing Jenkins** for use in build automation and CI/CD workflows.
+
+# Create a CI Pipeline with Jenkinsfile (Freestyle, Pipeline, Multibranch Pipeline)
+## 🚀 
+- **Jenkins**
+- **Docker**
+- **Linux**
+- **Git**
+- **Java**
+- **Maven**
