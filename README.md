@@ -35,7 +35,7 @@ CI Pipline for a Java Maven application to build and push to the repository
 2. Make Docker available in Jenkin Server
 3. Create **Jenkins Credentials** for a (git Repo, Docker hub)
 4. Create **Jenkins Jobs Types** (Freestyle, Piplelines, Multibranch Pipline) for Java Maven project with Maven to:
-   a. Connect to Applications's git Repo
-   b. Build jar
-   c. Build Docker Image
-   d. Push to private Dockerhub Repo  
+   1. Connect to Applications's git Repo
+   2. Build jar
+   3. Build Docker Image
+   4. Push to private Dockerhub Repo  
