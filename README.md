@@ -21,10 +21,15 @@ This project demonstrates how to set up and configure Jenkins on an Ubuntu serve
 3. **Initializing Jenkins** for use in build automation and CI/CD workflows.
 
 # Create a CI Pipeline with Jenkinsfile (Freestyle, Pipeline, Multibranch Pipeline)
-## 🚀 
+## 🚀 Technologies Used
 - **Jenkins**
 - **Docker**
 - **Linux**
 - **Git**
 - **Java**
 - **Maven**
+
+## 📝 Project Description
+CI Pipline for a Java Maven application to build and push to the repository
+1. Install Build tools Maven in Jenkin
+2. Make Docker available in Jenkin Server
