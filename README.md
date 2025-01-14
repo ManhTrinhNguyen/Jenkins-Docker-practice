@@ -31,5 +31,11 @@ This project demonstrates how to set up and configure Jenkins on an Ubuntu serve
 
 ## 📝 Project Description
 CI Pipline for a Java Maven application to build and push to the repository
-1. Install Build tools Maven in Jenkin
+1. **Install Build Tools** Maven in Jenkin
 2. Make Docker available in Jenkin Server
+3. Create **Jenkins Credentials** for a (git Repo, Docker hub)
+4. Create **Jenkins Jobs Types** (Freestyle, Piplelines, Multibranch Pipline) for Java Maven project with Maven to:
+   a. Connect to Applications's git Repo
+   b. Build jar
+   c. Build Docker Image
+   d. Push to private Dockerhub Repo  
