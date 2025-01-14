@@ -40,3 +40,16 @@ This project demonstrates how to set up and configure Jenkins on an Ubuntu serve
    3. Build Docker Image
    4. Push to private Dockerhub Repo
 ### CI Pipline for a Java Maven application to build and push to the repository Nexus
+1. **Install Build Tools** Maven in Jenkin
+2. Make Docker available in Jenkin Server
+3. Create **Jenkins Credentials** for a (git Repo, Nexus)
+4. **Create Nexus as a Docker Container**
+   1. Create new Droplet on Digital Ocean
+   2. Create nexus volume to persis data:  **docker volume create --name nexus-data**
+   3. Run Nexus Container with Nexus Image : **docker run -d -p 8081:8081 -p 8083:8083 -v nexus-data:/nexus-data sonatype/nexus3**
+   4. Create **Jenkins Credentials** for a (git Repo, Nexus)
+   5. Create **Jenkins Jobs Types** (Freestyle, Piplelines, Multibranch Pipline) for Java Maven project with Maven to:
+      1. Connect to Applications's git Repo
+      2. Build jar
+      3. Build Docker Image
+      4. Push to private Nexus
