@@ -42,7 +42,36 @@ CI Pipline for a Java Maven application to build and push to the repository
   
 ## Jenkin pipelines syntax 
 ```
-pipline {
-   
+pipeline {
+   agent any
+    
+    stages {
+
+        stage("test") {
+            steps {
+               script {
+                  echo "Testing Applications"
+               }
+            }
+        }
+    
+        stage("build") {
+            steps {
+               
+            }
+        }
+
+        stage("Deploy") {
+            steps {
+               
+            }
+        }
+       
+    } 
 }
 ```
+1. **pipelines** : 
+2. **agen** : The agent section specifies where the entire Pipeline, or a specific stage, will execute in the Jenkins environment depending on where the agent section is placed. The section must be defined at the top-level inside the pipeline block, but stage-level usage is optional.
+3. **stages**: Containing a sequence of one or more **stage** directives, the stages section is where the bulk of the "work" described by a Pipeline will be located. At a minimum, it is recommended that stages contain at least one stage directive for each discrete part of the continuous delivery process, such as Build, Test, and Deploy.
+4. **steps**: The steps section defines a series of one or more steps to be executed in a given stage directive.
+5. More Information of Jenkins Syntax : `https://www.jenkins.io/doc/book/pipeline/syntax/`
