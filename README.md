@@ -95,7 +95,7 @@ This project demonstrate how to deploy Nexus as a Docker container
       3. **-p 8083:8083** : To connect with docker i have to create another port for that
       4. **-v nexus-data:/nexus-data** : Nexus volume to persist data
 4. Because of Nexus run on **http** so I have to set up **Insecurity-Registy** in the Docker to accept http request 
-   1. In Linux: Navigate to /etc/docker/daemon.json
+   1. In Linux: Navigate to **/etc/docker/daemon.json**
    2. ```
       {
 
@@ -103,3 +103,16 @@ This project demonstrate how to deploy Nexus as a Docker container
 
        }
    ```
+
+# Push Docker Image to Nexus
+## In Nexus 
+1. Create Docker Repository
+   1. Open port 8083 to connect with Docker
+2. Create Docker Blob Store 
+3. Create **Role** and **User**
+4. Set that **User** to Docker-hosted **Role**
+5. Open Docker Authencation
+## Build and Push Docker image to Nexus 
+1. **Build Image**: docker build -t *nexus-ipaddress:port:app-name-version* .
+2. **Login docker to Nexus**: docker login nexus-ipAddress:port
+3. **Push Docker to Nexus**: docker push *nexus-ipaddress:port:app-name-version*
