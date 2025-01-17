@@ -103,7 +103,7 @@ This project demonstrate how to deploy Nexus as a Docker container
 
        }
    ```
-
+ 5. **docker.sock** : is the Unix socket file Docker used to communicate with Docker client **/var/run/docker.sock**
 # Push Docker Image to Nexus
 ## In Nexus 
 1. Create Docker Repository
