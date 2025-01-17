@@ -75,3 +75,6 @@ pipeline {
 3. **stages**: Containing a sequence of one or more **stage** directives, the stages section is where the bulk of the "work" described by a Pipeline will be located. At a minimum, it is recommended that stages contain at least one stage directive for each discrete part of the continuous delivery process, such as Build, Test, and Deploy.
 4. **steps**: The steps section defines a series of one or more steps to be executed in a given stage directive.
 5. More Information of Jenkins Syntax : `https://www.jenkins.io/doc/book/pipeline/syntax/`
+
+## Jenkin Multi-branch pipelines
+
