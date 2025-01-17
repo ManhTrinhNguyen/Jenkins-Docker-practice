@@ -11,8 +11,8 @@ This project demonstrates how to set up and configure Jenkins on an Ubuntu serve
 
 1. **Creating an Ubuntu server** on DigitalOcean.
 2. **Setting up Jenkins** by running it as a Docker container.
-   - **Install Docker** : apt install docker.io
-   - **Run Jenkins Container with Jenkins image** : docker run -d -p 8080:8080 -p 50000:50000 -v jenkins-home:/var/jenkins-home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
+   - **Install Docker** : `apt install docker.io`
+   - **Run Jenkins Container with Jenkins image** : `docker run -d -p 8080:8080 -p 50000:50000 -v jenkins-home:/var/jenkins-home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts`
       - **-d** : Detach mode
       - **-p** : Port
       - **-v jenkins-home:/var/jenkins-home** : -v will create a docker volume to persist data
@@ -88,7 +88,7 @@ This project demonstrate how to deploy Nexus as a Docker container
 1. **Create an Ubuntu server** on Digital Ocean -
 2. **Install docker** `apt install docker.io`
 3. **Run Nexus container as a Nexus image**: 
-   1. **Create Nexus volume** : docker volume create --name nexus-data
+   1. **Create Nexus volume** : `docker volume create --name nexus-data`
    2. **Run Nexus Image**: `docker run -d -p 8081:8081 -p 8083:8083 --name nexus -v nexus-data:/nexus-data sonatype/nexus3`
       1. **-d** : Detach mode
       2. **-p 8081:8081** : Nexus run on port 8081  
