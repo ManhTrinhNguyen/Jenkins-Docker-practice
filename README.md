@@ -76,5 +76,30 @@ pipeline {
 4. **steps**: The steps section defines a series of one or more steps to be executed in a given stage directive.
 5. More Information of Jenkins Syntax : `https://www.jenkins.io/doc/book/pipeline/syntax/`
 
-## Jenkin Multi-branch pipelines
+# Install Nexus as a Docker container
+## 🚀 Technologies Used
+- **Nexus**
+- **Docker**
+- **DigitalOcean**
+- **Linux**
 
+## 📝 Project Description
+This project demonstrate how to deploy Nexus as a Docker container 
+1. **Create an Ubuntu server** on Digital Ocean -
+2. **Install docker** apt install docker.io 
+3. **Run Nexus container as a Nexus image**: 
+   1. **Create Nexus volume** : docker volume create --name nexus-data
+   2. **Run Nexus Image**: docker run -d -p 8081:8081 -p 8083:8083 --name nexus -v nexus-data:/nexus-data sonatype/nexus3
+      1. **-d** : Detach mode
+      2. **-p 8081:8081** : Nexus run on port 8081  
+      3. **-p 8083:8083** : To connect with docker i have to create another port for that
+      4. **-v nexus-data:/nexus-data** : Nexus volume to persist data
+4. Because of Nexus run on **http** so I have to set up **Insecurity-Registy** in the Docker to accept http request 
+   1. In Linux: Navigate to /etc/docker/daemon.json
+   2. ```
+      {
+
+        "insecure-registries": ["my-insecure-registry.local:5000"]
+
+    }
+   ```
