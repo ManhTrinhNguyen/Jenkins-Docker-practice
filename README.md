@@ -101,5 +101,5 @@ This project demonstrate how to deploy Nexus as a Docker container
 
         "insecure-registries": ["my-insecure-registry.local:5000"]
 
-    }
+       }
    ```
