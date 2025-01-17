@@ -86,10 +86,10 @@ pipeline {
 ## 📝 Project Description
 This project demonstrate how to deploy Nexus as a Docker container 
 1. **Create an Ubuntu server** on Digital Ocean -
-2. **Install docker** apt install docker.io 
+2. **Install docker** `apt install docker.io`
 3. **Run Nexus container as a Nexus image**: 
    1. **Create Nexus volume** : docker volume create --name nexus-data
-   2. **Run Nexus Image**: docker run -d -p 8081:8081 -p 8083:8083 --name nexus -v nexus-data:/nexus-data sonatype/nexus3
+   2. **Run Nexus Image**: `docker run -d -p 8081:8081 -p 8083:8083 --name nexus -v nexus-data:/nexus-data sonatype/nexus3`
       1. **-d** : Detach mode
       2. **-p 8081:8081** : Nexus run on port 8081  
       3. **-p 8083:8083** : To connect with docker i have to create another port for that
@@ -104,6 +104,10 @@ This project demonstrate how to deploy Nexus as a Docker container
        }
    ```
  5. **docker.sock** : is the Unix socket file Docker used to communicate with Docker client **/var/run/docker.sock**
+ 6. In Server we should create another user to run Nexus as a Docker container (never run with root user)
+    1. Create new user : `adduser username`
+    2. Add that user to Sudo Group so it can have a root privilege : `chmod -aG sudo username`
+    3. Make docker CLI available for all user : **for group** `chmod g=rw /var/run/docker.sock` **for other** `chmod o=rw /var/run/docker.sock`
 # Push Docker Image to Nexus
 ## In Nexus 
 1. Create Docker Repository
@@ -113,6 +117,6 @@ This project demonstrate how to deploy Nexus as a Docker container
 4. Set that **User** to Docker-hosted **Role**
 5. Open Docker Authencation
 ## Build and Push Docker image to Nexus 
-1. **Build Image**: docker build -t *nexus-ipaddress:port:app-name-version* .
-2. **Login docker to Nexus**: docker login nexus-ipAddress:port
-3. **Push Docker to Nexus**: docker push *nexus-ipaddress:port:app-name-version*
+1. **Build Image**: `docker build -t *nexus-ipaddress:port:app-name-version* .`
+2. **Login docker to Nexus**: `docker login nexus-ipAddress:port`
+3. **Push Docker to Nexus**: `docker push *nexus-ipaddress:port:app-name-version*`
