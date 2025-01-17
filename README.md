@@ -38,4 +38,11 @@ CI Pipline for a Java Maven application to build and push to the repository
    1. Connect to Applications's git Repo
    2. Build jar
    3. Build Docker Image
-   4. Push to private Dockerhub Repo  
+   4. Push to private Dockerhub Repo
+  
+## Jenkin pipelines syntax 
+```
+pipline {
+   
+}
+```
