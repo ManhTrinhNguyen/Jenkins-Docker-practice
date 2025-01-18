@@ -9,18 +9,11 @@ pipeline {
       steps {
         script {
           echo 'Testing Application .... '
-          echo "Executing pipeline for branch $BRANCH_NAME"
         }
       }
     }
 
     stage('build jar') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
       steps {
         script {
           echo 'Building Jar .....'
@@ -30,13 +23,6 @@ pipeline {
     }
 
     stage('build docker image') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
-
       steps {
         script {
           withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')]){
@@ -49,13 +35,6 @@ pipeline {
     }
 
     stage('deploy') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
-      
       steps {
         script {
           echo "Deploying ...."
