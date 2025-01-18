@@ -108,7 +108,13 @@ This project demonstrate how to deploy Nexus as a Docker container
     1. Create new user : `adduser username`
     2. Add that user to Sudo Group so it can have a root privilege : `chmod -aG sudo username`
     3. Make docker CLI available for all user : **for group** `chmod g=rw /var/run/docker.sock` **for other** `chmod o=rw /var/run/docker.sock`
-# Push Docker Image to Nexus
+# Create Jenkins Pipline to Push Docker Image to Nexus
+## In Jenkins 
+1. Create credentials to connect with nexus
+2. Create pipeline
+3. Config Git as SCM with the specific Branch I want to run
+4. Script Path (Jenkinsfile) . Best practice is alway set Script path with Jenkinsfile .
+5. Create Jenkinsfile in Git Repo . Pipeline login will be in Jenkinsfile
 ## In Nexus 
 1. Create Docker Repository
    1. Open port 8083 to connect with Docker
