@@ -117,6 +117,7 @@ This project demonstrate how to deploy Nexus as a Docker container
 4. Set that **User** to Docker-hosted **Role**
 5. Open Docker Authencation
 ## Build and Push Docker image to Nexus 
-1. **Build Image**: `docker build -t *nexus-ipaddress:port:app-name-version* .`
-2. **Login docker to Nexus**: `docker login nexus-ipAddress:port`
-3. **Push Docker to Nexus**: `docker push *nexus-ipaddress:port:app-name-version*`
+1. **Create Maven/Gradle/NPM artifact** : `mvn package` or `gradle build` or `npm pack`
+2. **Build Image**: `docker build -t *nexus-ipaddress:port:app-name-version* .`
+3. **Login docker to Nexus**: `docker login nexus-ipAddress:port`
+4. **Push Docker to Nexus**: `docker push *nexus-ipaddress:port:app-name-version*`
