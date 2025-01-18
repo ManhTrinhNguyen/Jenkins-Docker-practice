@@ -8,19 +8,12 @@ pipeline {
     stage('test') {
       steps {
         script {
-          echo 'Testing Application .... 123456'
-          echo "Executing pipeline for branch $BRANCH_NAME"
+          echo 'Testing Application'
         }
       }
     }
 
     stage('build jar') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
       steps {
         script {
           echo 'Building Jar .....'
@@ -30,32 +23,18 @@ pipeline {
     }
 
     stage('build docker image') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
-
       steps {
         script {
           withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')]){
-            sh 'docker build -t nguyenmanhtrinh/demo-app:java-app-2.3 .'
-            sh "echo ${PWD} | docker login -u ${USER} --password-stdin"
-            sh 'docker push nguyenmanhtrinh/demo-app:java-app-2.3'
+            sh 'docker build -t 164.92.67.98:8083/java-app-2.0 .'
+            sh "echo ${PWD} | docker login -u ${USER} --password-stdin 164.92.67.98:8083"
+            sh 'docker push 164.92.67.98:8083/java-app-2.0'
           }
         }
       }
     }
 
     stage('deploy') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
-      
       steps {
         script {
           echo "Deploying ...."
