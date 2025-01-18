@@ -127,3 +127,5 @@ This project demonstrate how to deploy Nexus as a Docker container
 2. **Build Image**: `docker build -t *nexus-ipaddress:port:app-name-version* .`
 3. **Login docker to Nexus**: `docker login nexus-ipAddress:port`
 4. **Push Docker to Nexus**: `docker push *nexus-ipaddress:port:app-name-version*`
+
+# Create a Jenkins Share Library 
