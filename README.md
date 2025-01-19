@@ -79,9 +79,9 @@ pipeline {
 ## Jenkin Incremental Version 
 1. **This command is to automatic increase version in pom.xml** : `mvn build-helper:parse-version version:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} versions:commit`
    1. **build-helper:parse-version** : Is the plugin . Parse the version inside the pom file
-   2. - **versions:set** : Set the version between version tag
-   3. - **-DnewVersion** : To set new version
-   4. - **\${parsedVersion.majorVersion}** : set the major version . If. i want to increase major version i will use \${parsedVersion.nextMajorVersion}
-   5. - **\${parsedVersion.minorVersion}** : set the minor version . If. i want to increase minor version i will use \${parsedVersion.nextMinorVersion}
-   6. - **versions:commit**  : To remove the old pom.xml version
+   2. **versions:set** : Set the version between version tag
+   3. **-DnewVersion** : To set new version
+   4. **\${parsedVersion.majorVersion}** : set the major version . If. i want to increase major version i will use \${parsedVersion.nextMajorVersion}
+   5. **\${parsedVersion.minorVersion}** : set the minor version . If. i want to increase minor version i will use \${parsedVersion.nextMinorVersion}
+   6. **versions:commit**  : To remove the old pom.xml version
 
