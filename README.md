@@ -104,4 +104,6 @@ pipeline {
    sh "docker login -u username -p password" (No need to provide url to docker hub repo if other repo I need to provide address to that)
    sh "docker push docker-hub-repo:$IMAGE_NAME"
 ```
+6. **In Dockerfile** :
+7. 
 
