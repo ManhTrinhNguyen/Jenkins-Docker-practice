@@ -100,10 +100,10 @@ pipeline {
    - **$BUILD_NUMBER** : is the build pipeline that from Jenkins Env
 5. **In build stage** : To also update Docker Image version :
 ```
-   sh "docker build -t docker-hub-repo:$IMAGE_NAME"
+   sh "docker build -t docker-hub-repo:${IMAGE_NAME}"
    sh "docker login -u username -p password" (No need to provide url to docker hub repo if other repo I need to provide address to that)
-   sh "docker push docker-hub-repo:$IMAGE_NAME"
+   sh "docker push docker-hub-repo:${IMAGE_NAME}"
 ```
-6. **In Dockerfile** :
-7. 
+6. **In Dockerfile** : Should use regular expression the match whenever version increment
+7. **Before build I have to Clean all package in target**: `mvn clean package`
 
