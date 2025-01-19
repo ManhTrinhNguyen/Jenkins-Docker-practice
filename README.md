@@ -87,7 +87,18 @@ pipeline {
 **In Jenkinsfile**
 1. **Create version increment stage** : Have to be before the build stage
 2. **Added the increase version command** : `sh "mvn build-helper:parse-version version:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} versions:commit"`
-3. **In build stage** : To also update Docker Image version
+3. **Take the version from pom.xml** :
+```def matcher = readFile(pom.xml) =~ <version>(.+)</version>
+   def version = matcher[0][1]
+   env.IMAGE_NAME="$version-$BUILD_NUMBER"
+```
+   1. **readFile(pom.xml)** : Will read the pom.xml file
+   2. **=~ <version>(.+)</version>** : From pom.xml will find the version tag with its value
+   3. **matcher**: Will return a array of version tag
+   4. **matcher[0][1]**: Extract that value from version array
+   5. **env.IMAGE_NAME** : Create then save IMAGE_NAME variable to enviroment
+   6. **$BUILD_NUMBER** : is the build pipeline that from Jenkins Env
+7. **In build stage** : To also update Docker Image version :
 ```
    sh "docker build -t docker-hub-repo:$IMAGE_NAME"
    sh "docker login -u username -p password" (No need to provide url to docker hub repo if other repo I need to provide address to that)
