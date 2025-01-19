@@ -84,4 +84,7 @@ pipeline {
    4. **\${parsedVersion.majorVersion}** : set the major version . If. i want to increase major version i will use \${parsedVersion.nextMajorVersion}
    5. **\${parsedVersion.minorVersion}** : set the minor version . If. i want to increase minor version i will use \${parsedVersion.nextMinorVersion}
    6. **versions:commit**  : To remove the old pom.xml version
+**In Jenkinsfile**
+1. **Create version increment stage** : Have to be before the build stage
+2. **Added the increase version command** : `sh "mvn build-helper:parse-version version:set -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} versions:commit"`
 
