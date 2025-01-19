@@ -16,7 +16,7 @@ pipeline {
     stage('Increment version') {
       steps {
         script {
-          echo 'Increment version'
+          echo 'Increment version for Maven'
           sh 'mvn build-helper:parse-version version:set \
           -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} \
           versions:commit'
