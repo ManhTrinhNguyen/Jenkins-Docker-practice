@@ -98,7 +98,7 @@ pipeline {
    - **matcher[0][1]**: Extract that value from version array
    - **env.IMAGE_NAME** : Create then save IMAGE_NAME variable to enviroment
    - **$BUILD_NUMBER** : is the build pipeline that from Jenkins Env
-4. **In build stage** : To also update Docker Image version :
+5. **In build stage** : To also update Docker Image version :
 ```
    sh "docker build -t docker-hub-repo:$IMAGE_NAME"
    sh "docker login -u username -p password" (No need to provide url to docker hub repo if other repo I need to provide address to that)
