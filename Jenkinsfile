@@ -8,7 +8,7 @@ pipeline {
     stage('test') {
       steps {
         script {
-          echo 'Testing Application .... '
+          echo 'Testing Application Web Hook '
         }
       }
     }
