@@ -9,53 +9,46 @@ pipeline {
       steps {
         script {
           echo 'Testing Application .... '
-          echo "Executing pipeline for branch $BRANCH_NAME"
+        }
+      }
+    }
+
+    stage('Increment version') {
+      steps {
+        script {
+          echo 'Increment version'
+          sh 'mvn build-helper:parse-version version:set \
+          -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} \
+          versions:commit'
+          def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
+          def version = matcher[0][1]
+          env.IMAGE_NAME = "$version-$BUILD_NUMBER"
         }
       }
     }
 
     stage('build jar') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
       steps {
         script {
           echo 'Building Jar .....'
-          sh 'mvn package'
+          sh 'mvn clean package'
         }
       }
     }
 
     stage('build docker image') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
-
       steps {
         script {
           withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')]){
-            sh 'docker build -t nguyenmanhtrinh/demo-app:java-app-2.3 .'
+            sh "docker build -t nguyenmanhtrinh/demo-app:${IMAGE_NAME} ."
             sh "echo ${PWD} | docker login -u ${USER} --password-stdin"
-            sh 'docker push nguyenmanhtrinh/demo-app:java-app-2.3'
+            sh "docker push nguyenmanhtrinh/demo-app:${IMAGE_NAME}"
           }
         }
       }
     }
 
     stage('deploy') {
-      // Expression log to check if that branch is main then will be execute 
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      } 
-      
       steps {
         script {
           echo "Deploying ...."
