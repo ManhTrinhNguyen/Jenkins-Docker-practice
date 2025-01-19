@@ -8,7 +8,7 @@ pipeline {
     stage('test') {
       steps {
         script {
-          echo 'Testing Application For Maven App '
+          echo 'Testing Application .... '
           echo "Executing pipeline for branch $BRANCH_NAME"
         }
       }
