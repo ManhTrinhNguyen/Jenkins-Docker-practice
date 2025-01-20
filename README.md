@@ -117,5 +117,4 @@ pipeline {
 9. **Ignore Jenkins commit for Jenkins Pipeline Trigger**:
    1. Install Ignore Committer Strategy Plugin
    2. Enter the email address that you want to ignore commit ( That email set in the configuration)
-   3. ...
 
