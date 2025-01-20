@@ -111,5 +111,7 @@ pipeline {
    2. **Add** : `sh 'git add .'`
    3. **Commit** : `sh 'git commit -m "ci: version bump"'`
    4. **Push** : `sh 'git push origin HEAD:my-branch-name'`
-   5. **Set origin access**: `sh "git remote set-url origin https://${USER}:${PASSWORD}"`
+   5. **Set origin access**: `sh "git remote set-url origin https://${USER}:${PASSWORD}@github.com/ManhTrinhNguyen/Jenkins-Docker-practice.git"`
+   6. **Print out infomations**: `sh 'git status' sh 'git branch' sh 'git --config'`
+   7. **Configure email and name on top** : `sh 'git config --global user.email "jenkins@gmail.com"' sh 'git config --global user.name "jenkins"'`
 
