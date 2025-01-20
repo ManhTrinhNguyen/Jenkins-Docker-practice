@@ -106,4 +106,10 @@ pipeline {
 ```
 6. **In Dockerfile** : Should use regular expression the match whenever version increment
 7. **Before build I have to Clean all package in target**: `mvn clean package`
+8. **Create another stage to Commit to Github in Jenkinsfile after build and deploy**:
+   1. Need access Credentials to connect to github
+   2. **Add** : `sh 'git add .'`
+   3. **Commit** : `sh 'git commit -m "ci: version bump"'`
+   4. **Push** : `sh 'git push origin HEAD:my-branch-name'`
+   5. **Set origin access**: `sh "git remote set-url origin https://${USER}:${PASSWORD}"`
 
