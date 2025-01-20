@@ -114,4 +114,7 @@ pipeline {
    5. **Set origin access**: `sh "git remote set-url origin https://${USER}:${PASSWORD}@github.com/ManhTrinhNguyen/Jenkins-Docker-practice.git"`
    6. **Print out infomations**: `sh 'git status' sh 'git branch' sh 'git --config'`
    7. **Configure email and name on top** : `sh 'git config --global user.email "jenkins@gmail.com"' sh 'git config --global user.name "jenkins"'`
+9. **Ignore Jenkins commit for Jenkins Pipeline Trigger**:
+   1. Install Ignore Committer Strategy Plugin
+   2. Enter the email address that you want to ignore commit ( That email set in the configuration)  
 
